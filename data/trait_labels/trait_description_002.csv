@@ -1,0 +1,79 @@
+﻿,Trait code,Trait label,description,cycle,time
+1,d1map_generalappearanc,General appearance - 1 MAP,,cycle_1,1_MAP
+2,d1map_germination,Germination - 1 MAP,,cycle_1,1_MAP
+3,d1map_vigor,Vigor - 1 MAP,,cycle_1,1_MAP
+4,d3map_aboutdiseaseres,Susceptibility to disease - 3 MAP,,cycle_1,3_MAP
+5,d3map_aboutpestresis,Susceptibility to pests - 3 MAP,,cycle_1,3_MAP
+6,d3map_aboutvigor,Vigor - 3 MAP,,cycle_1,3_MAP
+7,d6map_branchhabit,Branching habit - 6 MAP,,cycle_1,6_MAP
+8,d6map_generalappearanc,General appearance - 6 MAP,,cycle_1,6_MAP
+9,d6map_stemappear6map,Stem appearance - 6 MAP,,cycle_1,6_MAP
+10,d9map_generalappearanc,General appearance - 9 MAP,,cycle_1,9_MAP
+11,d9map_overallbest9map,Overall performance - 9 MAP,,cycle_1,9_MAP
+12,d9map_plantheightabove,Plant height - 9 MAP,,cycle_1,9_MAP
+13,d9map_suitabilitysoils,Suitability soils - 9 MAP,,cycle_1,9_MAP
+14,X12map_boiledroots_choicreplantboil,Choice to replant- 12 MAP,,cycle_1,12_MAP
+15,X12map_boiledroots_cookedtaste,Taste of boiled root-12 MAP,,cycle_1,12_MAP
+16,X12map_boiledroots_cookingtime,Cooked well boiled root- 12 MAP,,cycle_1,12_MAP
+17,X12map_boiledroots_easepeeling,Ease of peeling-12 MAP,,cycle_1,12_MAP
+18,X12map_boiledroots_fibrousness,Less fibrous boiled root- 12 MAP,,cycle_1,12_MAP
+19,X12map_boiledroots_mealiness,Boiled root mealinenss - 12 MAP,,cycle_1,12_MAP
+20,X12map_boiledroots_overalboiledroot,Preferred boiled food - 12 MAP,,cycle_1,12_MAP
+21,X12map_boiledroots_overallperf,Overall preferred from planting to boiled food - 12 MAP,,cycle_1,12_MAP
+22,X12map_boiledroots_softness,Boiled root softness - 12 MAP,,cycle_1,12_MAP
+23,X12map_flour_based_meal_choicreplantflou,Choice to replant- 12 MAP,,cycle_1,12_MAP
+24,X12map_flour_based_meal_colorcasspaste,Flour based meal colour - 12 MAP,,cycle_1,12_MAP
+25,X12map_flour_based_meal_easedrying,Ease of drying - 12 MAP,,cycle_1,12_MAP
+26,X12map_flour_based_meal_easemingling,Ease of mixing flour paste - 12 MAP,,cycle_1,12_MAP
+27,X12map_flour_based_meal_overalpastelike,Preferred flour based meal - 12 MAP,,cycle_1,12_MAP
+28,X12map_flour_based_meal_overalperfoflour,Overall performance from planting to flour meal - 12 MAP,,cycle_1,12_MAP
+29,X12map_flour_based_meal_stickinesspaste,Stickiness of paste -12 MAP,,cycle_1,12_MAP
+30,X12map_flour_based_meal_tastecasspaste,Taste of flour meal - 12 MAP,,cycle_1,12_MAP
+31,X12map_flour_based_meal_texturepaste,Texture of flour meal - 12 MAP,,cycle_1,12_MAP
+32,X12map_harvest_field_diseaseresistanc,Reaction Root Diseases - 12 MAP,,cycle_1,12_MAP
+33,X12map_harvest_field_overallrootlike,Overall preferred fresh roots - 12 MAP,,cycle_1,12_MAP
+34,X12map_harvest_field_overalperfharvst,Overall performance harvest - 12 MAP,,cycle_1,12_MAP
+35,X12map_harvest_field_rootcotcolor,Flesh color  - 12 MAP,,cycle_1,12_MAP
+36,X12map_harvest_field_rootofsize,Fresh root size - 12 MAP,,cycle_1,12_MAP
+37,X12map_harvest_field_rootshapes,Fresh root shape - 12 MAP,,cycle_1,12_MAP
+38,X12map_harvest_field_rootyieldcass,Fresh root yield - 12 MAP,,cycle_1,12_MAP
+39,X12map_harvest_field_stemquality,Stem quality - 12 MAP,,cycle_1,12_MAP
+40,d9map22_generalappearanc,General Appearance - 9 MAP,,cycle_2,9_MAP
+41,d9map22_overallbest9map,Overall performance - 9 MAP,,cycle_2,9_MAP
+42,d9map22_plantheightabove,Plant height - 9 MAP,,cycle_2,9_MAP
+43,d9map22_stemquality,Stem quality - 9 MAP,,cycle_2,9_MAP
+44,d9map22_suitabilitysoils,Suitability soils - 9 MAP,,cycle_2,9_MAP
+45,tricot2021_2022boiledmealdataat12map_qst_bestcookedclone,Cooks well boiled root- 12 MAP,,cycle_2,12_MAP
+46,tricot2021_2022boiledmealdataat12map_qst_bitternboiledroots,Not bitter boiled root - 12 MAP,,cycle_2,12_MAP
+47,tricot2021_2022boiledmealdataat12map_qst_fibrousnessboiledroots,Less fibrous boiled root- 12 MAP,,cycle_2,12_MAP
+48,tricot2021_2022boiledmealdataat12map_qst_mealinessroots,Boiled root mealinenss - 12 MAP,,cycle_2,12_MAP
+49,tricot2021_2022boiledmealdataat12map_qst_prefboiledfood,Preferred boiled food - 12 MAP,,cycle_2,12_MAP
+50,tricot2021_2022boiledmealdataat12map_qst_prefboiledroots,Overall preferred from planting to boiled food-12 MAP,,cycle_2,12_MAP
+51,tricot2021_2022boiledmealdataat12map_qst_prefcookedcolor,Boiled root colour - 12 MAP,,cycle_2,12_MAP
+52,tricot2021_2022boiledmealdataat12map_qst_softnessboiledroots,Boiled root softness - 12 MAP,,cycle_2,12_MAP
+53,tricot2021_2022boiledmealdataat12map_qst_tasteboiledroots,Taste of boiled root-12 MAP,,cycle_2,12_MAP
+54,tricot2021_2022fieldharvestdataat12map_qst_fleshcolor,Root flesh color  - 12 MAP,,cycle_2,12_MAP
+55,tricot2021_2022fieldharvestdataat12map_qst_freshrootshape,Fresh root shape - 12 MAP,,cycle_2,12_MAP
+56,tricot2021_2022fieldharvestdataat12map_qst_freshrootsize,Fresh root size - 12 MAP,,cycle_2,12_MAP
+57,tricot2021_2022fieldharvestdataat12map_qst_freshrootyield,Fresh root yield - 12 MAP,,cycle_2,12_MAP
+58,tricot2021_2022fieldharvestdataat12map_qst_ovperfrootharvest,Overall preferred fresh roots - 12 MAP,,cycle_2,12_MAP
+59,tricot2021_2022fieldharvestdataat12map_qst_performharvest,Overall performance harvest - 12 MAP,,cycle_2,12_MAP
+60,tricot2021_2022fieldharvestdataat12map_qst_qualitystems,Stem quality - 12 MAP,,cycle_2,12_MAP
+61,tricot2021_2022flour.basedmealdataat12map_qst_colorflourbasedmeal,Flour based meal colour - 12 MAP,,cycle_2,12_MAP
+62,tricot2021_2022flour.basedmealdataat12map_qst_compflourused,Amount of flour,,cycle_2,12_MAP
+63,tricot2021_2022flour.basedmealdataat12map_qst_dryingtimechips,Ease of drying - 12 MAP,,cycle_2,12_MAP
+64,tricot2021_2022flour.basedmealdataat12map_qst_easemingleflour,Ease of mixing flour paste - 12 MAP,,cycle_2,12_MAP
+65,tricot2021_2022flour.basedmealdataat12map_qst_performflourmeal,Preferred flour based meal - 12 MAP,,cycle_2,12_MAP
+66,tricot2021_2022flour.basedmealdataat12map_qst_performplantflourmeal,Overall performance from planting to flour meal-12 MAP,,cycle_2,12_MAP
+67,tricot2021_2022flour.basedmealdataat12map_qst_sticknesspaste,Stickiness of paste -12 MAP,,cycle_2,12_MAP
+68,tricot2021_2022flour.basedmealdataat12map_qst_tastecassavapaste,Taste of flour meal - 12 MAP,,cycle_2,12_MAP
+69,tricot2021_2022flour.basedmealdataat12map_qst_texturecassavapaste,Texture of flour meal - 12 MAP,,cycle_2,12_MAP
+70,tricot2021mid.altitudedata.6map_aboutdiseaseres,Susceptibility to CMD/CBSD - 6 MAP,,cycle_2,6_MAP
+71,tricot2021mid.altitudedata.6map_aboutpestresis,Susceptibility to pests - 6 MAP,,cycle_2,6_MAP
+72,tricot2021mid.altitudedata.6map_branchhabit,Branching habit - 6 MAP,,cycle_2,6_MAP
+73,tricot2021mid.altitudedata.6map_generalappearanc,General appearance - 6 MAP,,cycle_2,6_MAP
+74,tricot2021mid.altitudedata.6map_stemquality,Steam appearance - 6 MAP,,cycle_2,6_MAP
+75,tricot2021mid.altitudedatacollection.d3map_aboutdiseaseres,Susceptibility to CMD/CBSD - 3 MAP,,cycle_2,3_MAP
+76,tricot2021mid.altitudedatacollection.d3map_aboutpestresis,Susceptibility to pests - 3 MAP,,cycle_2,3_MAP
+77,tricot2021mid.altitudedatacollection.d3map_aboutvigor,Vigor - 3 MAP,,cycle_2,3_MAP
+78,tricot2021mid.altitudedatacollection.d3map_germination,Germination - 3 MAP,,cycle_2,3_MAP

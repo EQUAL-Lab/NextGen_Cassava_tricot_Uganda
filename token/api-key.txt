@@ -1,0 +1,1 @@
+##Replace this line with your ClimMob API key and delete after downloading the data
