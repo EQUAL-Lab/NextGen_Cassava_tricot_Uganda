@@ -62,8 +62,7 @@ ug_tricot_df$district <- as.factor(ug_tricot_df$district)
 
 ug_tricot_data <- cbind("R" = ug_tricot_rank, ug_tricot_df)
 
-table(ug_tricot_df$gender)
-
+# Fit Plackett-Luce tree model
 plt_1 <- pltree(R ~ gender + age + district ,
                 data = ug_tricot_data,
                 npseudo = .5,
@@ -90,6 +89,8 @@ ggsave(filename = "output/figures/Figure_3_plt_sociodem_geo.png",
        units = "px", 
        dpi = 300,
        bg = "white")
+
+
 
 # Get summaries of each node
 plt_1_n2_sum <- PlackettLuce:::summary.PlackettLuce(plt_1[[2]]$node$info$object, ref = "NAROCASS 1")
@@ -123,18 +124,20 @@ plt_1_n3_sum_ar <- dplyr::arrange(as.data.frame(plt_1_n3_sum$coefficients), desc
 write.csv(x = round(plt_1_n3_sum_ar, 3), file = "output/tables/plt_1_sum_node_3.csv")
 
 # #Stability assessment # Uncomment for run
-stb_01 <- NULL
+# stb_01 <- NULL
+# 
+# set.seed(123)
+# stb_01 <- stablelearner::stabletree(plt_1,
+#                                     sampler = stablelearner::subsampling,
+#                                     savetrees = TRUE,
+#                                     B = 1000,
+#                                     v = 0.8)
+# 
+# stb_01
+# 
+# saveRDS(object = stb_01, file = "output/stability_01.rds")
 
-set.seed(123)
-stb_01 <- stablelearner::stabletree(plt_1,
-                                    sampler = stablelearner::subsampling,
-                                    savetrees = TRUE,
-                                    B = 1000,
-                                    v = 0.8)
-
-stb_01
-
-saveRDS(object = stb_01, file = "output/stability_01.rds")
+stb_01 <- readRDS("output/stability_01.rds")
 
 summary(stb_01)
 sum(colSums(stb_01$vs)) / 1000 * 100
@@ -147,6 +150,8 @@ sum(colSums(stb_01$vs)) / 1000 * 100
 
 # This one only considers the ones that produce a split
 rel_freqs_01 <- colSums(stb_01$vs) / sum(colSums(stb_01$vs)) * 100
+
+names(rel_freqs_01)[1] <- "sex"
 
 rel_freqs_01_df <- data.frame("variable" = names(rel_freqs_01), "rel_freq" = rel_freqs_01)
 
@@ -362,20 +367,22 @@ ug_tricot_node_3$node <- rep(3, nrow(ug_tricot_node_3))
 ug_tricot_nodes <- rbind(ug_tricot_node_2, ug_tricot_node_3)
 
 # #check PL tree stability
-library(stablelearner)
+# library(stablelearner)
+# 
+# stb_02 <- NULL
+# 
+# set.seed(123)
+# stb_02 <- stablelearner::stabletree(plt_3,
+#                                     sampler = stablelearner::subsampling,
+#                                     savetrees = TRUE,
+#                                     B = 1000,
+#                                     v = 0.8)
+# 
+# stb_02
+# 
+# saveRDS(stb_02, file = "output/stability_02.rds")
 
-stb_02 <- NULL
-
-set.seed(123)
-stb_02 <- stablelearner::stabletree(plt_3,
-                                    sampler = stablelearner::subsampling,
-                                    savetrees = TRUE,
-                                    B = 1000,
-                                    v = 0.8)
-
-stb_02
-
-saveRDS(stb_02, file = "output/stability_02.rds")
+stb_02 <- readRDS("output/stability_02.rds")
 
 summary(stb_02)
 
