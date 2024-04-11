@@ -11,7 +11,6 @@ ug_tricot_c1 <- read.csv("data/tricot_raw_climmob/nextgen_tricot_Uganda_c1.csv")
 # tricot cycle 2
 ug_tricot_c2 <- read.csv("data/tricot_raw_climmob/nextgen_tricot_Uganda_c2.csv")
 
-
 # Correct district names for cycle 1
 unique(ug_tricot_c1$registration_district)
 
@@ -118,6 +117,71 @@ ug_tricot_c2$gender <- ug_tricot_c2$biogender
 write.csv(x = ug_tricot_c1, file = "data/tricot_cleaned/ug_tricot_c1.csv")
 
 write.csv(x = ug_tricot_c2, file = "data/tricot_cleaned/ug_tricot_c2.csv")
+
+# Compute summary statistics - Table 1 in the manuscript
+
+# Table 1
+# Cycle 1
+t1 <- table(ug_tricot_c1$district, 
+            ug_tricot_c1$gender)
+
+t1 <- data.frame(unclass(t1))
+
+t1
+
+colSums(t1)
+
+sum(t1)
+
+write.csv(x = data.frame(unclass(t1)),
+          file = "output/gender_c1.csv")
+
+
+c1_sum <- data.frame(aggregate(age ~ district,
+                               data = ug_tricot_c1,
+                               function(X) c(mean = mean(X), SD = sd(X))))
+
+c1_sum[, 2] <- round(c1_sum[, 2], 1)
+
+c1_sum <- data.frame(unclass(c1_sum))
+
+colnames(c1_sum) <- c("District", "Age (mean)", "SD")
+
+c1_sum
+
+write.csv(x = c1_sum,
+          file = "output/age_c1.csv")
+
+# Cycle 2
+
+t2 <- table(ug_tricot_c2$district, 
+            ug_tricot_c2$gender)
+
+t2 <- data.frame(unclass(t2))
+
+t2
+
+colSums(t2)
+
+write.csv(x = data.frame(unclass(t2)),
+          file = "output/gender_c2.csv")
+
+c2_sum <- aggregate(age ~ district,
+                    data = ug_tricot_c2,
+                    function(X) c(mean = mean(X), SD = sd(X)))
+
+c2_sum[, 2] <- round(c2_sum[, 2], 1)
+
+c2_sum <- data.frame(unclass(c2_sum))
+
+colnames(c2_sum) <- c("District", "age (mean)", "SD")
+
+c2_sum
+
+write.csv(x = c2_sum,
+          file = "output/age_c2.csv")
+
+##### End of summary statistics ####
 
 # Merge the two cycles in one data.frame only with selected columns
 
