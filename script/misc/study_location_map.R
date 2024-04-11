@@ -1,5 +1,6 @@
 library(sf)
 library(ggplot2)
+library(ggspatial)
 
 
 #load tricot data
@@ -38,20 +39,26 @@ ug_tricot_sf <- sf::st_as_sf(ug_tricot_df, coords = c("longitude",
 
 ug_tricot_sf$cycle <- as.factor(ug_tricot_sf$cycle)
 
+nextgen_uga_dist <- uga_dist[uga_dist$DName2019 %in% all_districts, ]
+
+#colors
+
+water_color <- "#91C8E4"
+
+nei_border_col <- "gray70"
 
 #Figure 1
 
 ggplot() +
-  geom_sf(data = ken, fill = "gray95") +
-  geom_sf(data = ssd, fill = "gray95") +
-  geom_sf(data = rwa, fill = "gray95") +
-  geom_sf(data = tza, fill = "gray95") +
-  geom_sf(data = tza_wat, fill= "lightblue" ) +
-  geom_sf(data = cod, fill = "gray95") +
-  geom_sf(data = uga_dist, color = NA) +
-  geom_sf(data = uga_wat, fill= "lightblue" ) +
-  geom_sf(data = uga_dist, fill = NA) +
-  geom_sf(data = nextgen_uga_dist, fill = "darkgray") +
+  geom_sf(data = ken, fill = "#FDFAF6", color = nei_border_col, linewidth = 0.45) +
+  geom_sf(data = ssd, fill = "#FDFAF6", color = nei_border_col, linewidth = 0.45) +
+  geom_sf(data = rwa, fill = "#FDFAF6", color = nei_border_col, linewidth = 0.45) +
+  geom_sf(data = tza, fill = "#FDFAF6", color = nei_border_col, linewidth = 0.45) +
+  geom_sf(data = cod, fill = "#FDFAF6", color = nei_border_col, linewidth = 0.45) +
+  geom_sf(data = uga_dist, fill = "gray90", color = "gray80", size = 0.1) +
+  geom_sf(data = uga_wat, fill= water_color, color = NA) +
+  geom_sf(data = tza_wat, fill= water_color, color = NA) +
+  geom_sf(data = nextgen_uga_dist, fill = "darkgray", color = "white", linewidth = .5) +
   geom_sf(data = ug_tricot_sf, aes(color = cycle), size = 2.5) +
   geom_sf_text(data = nextgen_uga_dist,
                aes(label = DName2019),
@@ -67,58 +74,57 @@ ggplot() +
   scale_color_manual(name = 'Cycle', values = c("#1a9850", "#104e8b")) +
   theme(legend.key.size = unit(x = 1, "cm"),
         legend.text = element_text(size = 14),
-        legend.title = element_text(size = 16))
-  
+        legend.title = element_text(size = 16)) 
 
-ggsave(filename = "output/figures/uganda_tricot_locations_001.png", dpi = 600, width = 10, height = 10)
+ggsave(filename = "output/figures/uganda_tricot_locations_002.png", dpi = 600, width = 10, height = 10)
 
-aez_palette <- c("#ffffbf",
-                 "#ff7f00",
-                 "#b2df8a",
-                 "#e41a1c",
-                 "#053061",
-                 "#4daf4a",
-                 "#984ea3",
-                 "#01665e",
-                 "#bf812d",
-                 "#ffff33",
-                 "#a65628",
-                 "#f781b9",
-                 "#999999",
-                 "#c51b7d")
+# aez_palette <- c("#ffffbf",
+#                  "#ff7f00",
+#                  "#b2df8a",
+#                  "#e41a1c",
+#                  "#053061",
+#                  "#4daf4a",
+#                  "#984ea3",
+#                  "#01665e",
+#                  "#bf812d",
+#                  "#ffff33",
+#                  "#a65628",
+#                  "#f781b9",
+#                  "#999999",
+#                  "#c51b7d")
 
 #Agro-ecological Zones - Suplementary data - S1
-ggplot() + 
-  geom_sf(data = ken, fill = "gray95") +
-  geom_sf(data = ssd, fill = "gray95") +
-  geom_sf(data = rwa, fill = "gray95") +
-  geom_sf(data = tza, fill = "gray95") +
-  geom_sf(data = tza_wat, fill= "lightblue" ) +
-  geom_sf(data = cod, fill = "gray95") +
-  geom_sf(data = uga_dist, color = NA) +
-  geom_sf(data = ug_tricot_adm_2, fill = "darkgray") +
-  geom_sf(data = uga_aez, aes(fill = zone), color = NA, alpha = 1) +
-  scale_fill_manual(values = aez_palette) +
-  geom_sf(data = uga_wat, fill= "lightblue") +
-  geom_sf(data = uga_dist, fill = NA, linewidth = .1) + 
-  geom_sf(data = nextgen_uga_dist, color = "gray30", fill = NA, linewidth = .85) +
-  geom_sf(data = ug_tricot_sf, aes(shape = as.factor(cycle), color = as.factor(cycle)), size = 2) + 
-  scale_color_manual(values = c("gray20", "black")) +
-  geom_sf_text(data = nextgen_uga_dist,
-               aes(label = DName2019),
-               color = "black",
-               size = 5,
-               fontface = "bold",
-               nudge_x = c(0, 0, 0, 0, -.45, -.4, .2, -.23, 0, 0),
-               nudge_y = c(0, -.07, .15, .15, -.05, -.05, 0, 0, .1, -.18)) + 
-  # geom_sf_text(data = ug_tricot_adm_2, aes(label = NAME_2)) +
-  coord_sf(xlim = c(29.5, 35), ylim = c(-1.3, 4), expand = T) +
-  theme(panel.background = element_rect(fill = "lightgray"),
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank()) 
-
-
-ggsave(filename = "output/uganda_tricot_locations_aez_001.png", dpi = 600, width = 10, height = 10)
+# ggplot() + 
+#   geom_sf(data = ken, fill = "gray95") +
+#   geom_sf(data = ssd, fill = "gray95") +
+#   geom_sf(data = rwa, fill = "gray95") +
+#   geom_sf(data = tza, fill = "gray95") +
+#   geom_sf(data = tza_wat, fill= "lightblue" ) +
+#   geom_sf(data = cod, fill = "gray95") +
+#   geom_sf(data = uga_dist, color = NA) +
+#   #geom_sf(data = ug_tricot_adm_2, fill = "darkgray") +
+#   #geom_sf(data = uga_aez, aes(fill = zone), color = NA, alpha = 1) +
+#   scale_fill_manual(values = aez_palette) +
+#   geom_sf(data = uga_wat, fill= "lightblue") +
+#   geom_sf(data = uga_dist, fill = NA, linewidth = .1) + 
+#   geom_sf(data = nextgen_uga_dist, color = "gray30", fill = NA, linewidth = .85) +
+#   geom_sf(data = ug_tricot_sf, aes(shape = as.factor(cycle), color = as.factor(cycle)), size = 2) + 
+#   scale_color_manual(values = c("gray20", "black")) +
+#   geom_sf_text(data = nextgen_uga_dist,
+#                aes(label = DName2019),
+#                color = "black",
+#                size = 5,
+#                fontface = "bold",
+#                nudge_x = c(0, 0, 0, 0, -.45, -.4, .2, -.23, 0, 0),
+#                nudge_y = c(0, -.07, .15, .15, -.05, -.05, 0, 0, .1, -.18)) + 
+#   # geom_sf_text(data = ug_tricot_adm_2, aes(label = NAME_2)) +
+#   coord_sf(xlim = c(29.5, 35), ylim = c(-1.3, 4), expand = T) +
+#   theme(panel.background = element_rect(fill = "lightgray"),
+#         axis.title.x = element_blank(),
+#         axis.title.y = element_blank()) 
+# 
+# 
+# ggsave(filename = "output/uganda_tricot_locations_aez_001.png", dpi = 600, width = 10, height = 10)
 
 nextgen_uga_dist$DName2016
 
@@ -167,8 +173,8 @@ Mukono_sf <- sf::st_union(uga_dist[uga_dist$DName2016 %in% Mukono, ])
 Ngetta_sf <- sf::st_union(uga_dist[uga_dist$DName2016 %in% Ngetta, ])
 Nabuin_sf <- sf::st_union(uga_dist[uga_dist$DName2016 %in% Nabuin, ])
 Serere_sf <- sf::st_union(uga_dist[uga_dist$DName2016 %in% Serere, ])
-Mbarara_sf <- sf::st_union(Mbarara_sf)
-
+Mbarara_sf <- sf::st_union(uga_dist[uga_dist$DName2016 %in% Mbarara, ])
+Rwebitaba_sf <- sf::st_union(uga_dist[uga_dist$DName2016 %in% Rwebitaba, ])
 
 ug_zardis <- c(Abi_sf,
                Buginyanya_sf,
@@ -185,46 +191,45 @@ ug_zardis <- c(Abi_sf,
 #          dsn = "data/geo/zardis/zardis.gpkg"
 #   )
 
-
-zardi_colors <- c("#b2df8a",
-                  "#cab2d6",
-                  "#fb9a99",
-                  "#e31a1c",
-                  "#fdbf6f",
-                  "#ff7f00",
-                  "#33a02c",
-                  "#6a3d9a",
-                  "#ffff99",
-                  "#b15928")
-
-
 ug_zardis_sf <- st_read(dsn = "data/geo/zardis/zardis.gpkg")
 
 ug_zardis_sf$name <- zardi_names
 
+zardi_colors <- c("#b2df8a",
+                  "#D2DE32",
+                  "#fb9a99",
+                  "#D04848",
+                  "#436850",
+                  "#FE7A36",
+                  "#fdbf6f",
+                  "#6962AD",
+                  "#B0926A",
+                  "#b15928")
+
 ggplot() +
-  geom_sf(data = ken, fill = "gray95") +
-  geom_sf(data = ssd, fill = "gray95") +
-  geom_sf(data = rwa, fill = "gray95") +
-  geom_sf(data = tza, fill = "gray95") +
-  geom_sf(data = tza_wat, fill= "lightblue" ) +
-  geom_sf(data = cod, fill = "gray95") +
-  geom_sf(data = uga_dist, color = NA) +
+  geom_sf(data = ken, fill = "#FDFAF6", color = nei_border_col, linewidth = 0.45) +
+  geom_sf(data = ssd, fill = "#FDFAF6", color = nei_border_col, linewidth = 0.45) +
+  geom_sf(data = rwa, fill = "#FDFAF6", color = nei_border_col, linewidth = 0.45) +
+  geom_sf(data = tza, fill = "#FDFAF6", color = nei_border_col, linewidth = 0.45) +
+  geom_sf(data = cod, fill = "#FDFAF6", color = nei_border_col, linewidth = 0.45) +
+  #geom_sf(data = uga_dist, fill = "gray90", color = "gray80", size = 0.1) +
+  #geom_sf(data = uga_dist, color = NA) +
   #geom_sf(data = nextgen_uga_dist, fill = "darkgray") +
-  geom_sf(data = ug_zardis_sf, aes(fill = name),  alpha = .85) +
+  geom_sf(data = ug_zardis_sf, aes(fill = name),  color = "white", linewidth = .5) +
+  geom_sf(data = uga_wat, fill= water_color, color = NA, alpha = .85) +
+  geom_sf(data = tza_wat, fill= water_color, color = NA, alpha = .85) +
   # geom_sf_text(data = ug_zardis_sf,
   #              aes(label = name) ) +
-  geom_sf(data = uga_wat, fill= "lightblue", alpha = .65 ) +
+  #geom_sf(data = uga_wat, fill= "lightblue", alpha = .65 ) +
   scale_fill_manual(values = zardi_colors, name = "ZARDI") +
-  
   #geom_sf(data = uga_dist, fill = NA) +
   geom_sf(data = ug_tricot_sf, aes(shape = as.factor(cycle)), 
-          size = 2) +
+          size = 2, color = "gray15") +
   labs(shape = "Cycle") +
   coord_sf(xlim = c(29.5, 35), ylim = c(-1.3, 4), expand = T) 
   
 
-ggsave(filename = "output/figures/uganda_tricot_locations_ZARDIs.png", dpi = 600, width = 10, height = 10)
+ggsave(filename = "output/figures/uganda_tricot_locations_ZARDIs_002.png", dpi = 600, width = 10, height = 10)
 
 
 
