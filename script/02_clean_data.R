@@ -178,8 +178,12 @@ colnames(c2_sum) <- c("District", "age (mean)", "SD")
 
 c2_sum
 
+cbind(t1, c1_sum)
+
 write.csv(x = c2_sum,
           file = "output/age_c2.csv")
+
+colSums(rbind(t1,t2))
 
 ##### End of summary statistics ####
 
